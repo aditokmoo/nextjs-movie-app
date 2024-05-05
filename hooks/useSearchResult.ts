@@ -7,7 +7,7 @@ export default function useSearchResult(
   key: string,
 ) {
   const { data, isLoading } = useQuery({
-    queryKey: [key],
+    queryKey: [key, query],
     queryFn: () => getSearchedResult(query, type),
   });
 
