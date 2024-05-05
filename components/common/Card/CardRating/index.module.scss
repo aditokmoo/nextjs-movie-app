@@ -1,0 +1,9 @@
+@import "@/app/styles/variables.scss";
+
+.rating {
+  color: $light-color;
+  background-color: $dark-color;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
