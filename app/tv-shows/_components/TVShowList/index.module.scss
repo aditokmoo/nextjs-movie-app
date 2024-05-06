@@ -1,5 +1,15 @@
+@import "@/app/styles/mixins.scss";
+
 .tvShowList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
+
+  @include responsive('tab-land') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include responsive('mobile') {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

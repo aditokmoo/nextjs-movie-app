@@ -1,4 +1,3 @@
-import Button from "@/components/common/Button";
 import Link from "next/link";
 
 export default async function HomePage() {

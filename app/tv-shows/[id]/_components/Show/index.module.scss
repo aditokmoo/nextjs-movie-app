@@ -1,4 +1,5 @@
 @import "@/app/styles/variables.scss";
+@import "@/app/styles/mixins.scss";
 
 .show {
     background-repeat: no-repeat;
@@ -11,7 +12,7 @@
 
     .overlay {
         background: rgb(0,0,0);
-background: linear-gradient(138deg, rgba(0,0,0,0.9640231092436975) 4%, rgba(0,0,0,0.8379726890756303) 49%, rgba(0,0,0,0.48503151260504207) 74%);
+        background: linear-gradient(138deg, rgba(0,0,0,0.9640231092436975) 4%, rgba(0,0,0,0.8379726890756303) 49%, rgba(0,0,0,0.48503151260504207) 74%);
         position: absolute;
         top: 0;
         left: 0;
@@ -32,6 +33,12 @@ background: linear-gradient(138deg, rgba(0,0,0,0.9640231092436975) 4%, rgba(0,0,
         h1.title {
             font-size: 6rem;
             font-weight: 900;
+
+            @include responsive('mobile') {
+                font-size: 4rem;
+                line-height: 1.1;
+                text-align: center;
+            }
         }
 
         p.overview {
@@ -39,6 +46,11 @@ background: linear-gradient(138deg, rgba(0,0,0,0.9640231092436975) 4%, rgba(0,0,
             line-height: 1.8;
             font-family: 'Montserrat';
             color: #999;
+
+            @include responsive('mobile') {
+                text-align: center;
+                margin: 2rem;
+            }
         }
 
         .details {
@@ -46,6 +58,11 @@ background: linear-gradient(138deg, rgba(0,0,0,0.9640231092436975) 4%, rgba(0,0,
             align-items: center;
             gap: 2rem;
             margin: 2rem 0;
+
+            @include responsive('mobile') {
+                justify-content: center;
+                flex-direction: column;
+            }
 
             .trailerBtn {
                 padding: 1rem 2rem;

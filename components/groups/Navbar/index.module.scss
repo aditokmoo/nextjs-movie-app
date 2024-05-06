@@ -1,4 +1,5 @@
 @import "@/app/styles/variables.scss";
+@import "@/app/styles/mixins.scss";
 
 .nav {
   background-color: $primary-color;
@@ -18,11 +19,19 @@
     align-items: center;
     justify-content: space-between;
 
+    @include responsive('mobile') {
+      display: block;
+    }
+
     h1.title {
       color: $light-color;
       display: flex;
       align-items: center;
       gap: 1rem;
+
+      @include responsive('mobile') {
+        display: none;
+      }
     }
 
     ul.links {
@@ -30,6 +39,10 @@
       align-items: center;
       gap: 4rem;
       list-style: none;
+
+      @include responsive('mobile') {
+        justify-content: center;
+      }
 
       li a {
         text-decoration: none;
