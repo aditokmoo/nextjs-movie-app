@@ -1,18 +1,38 @@
 'use client'
+import { imagePath } from "@/utils";
+import Link from "next/link";
+import { FaStar } from "react-icons/fa";
 import { useGetSingleResult } from "@/hooks/useGetSingleResult"
+import { FaRegCirclePlay } from "react-icons/fa6";
+// SCSS
+import styles from './index.module.scss';
+import { useGetTrailer } from "@/hooks/useGetTrailer";
 
 interface PropTypes {
     id: number
 }
 
 export default function Show({ id }: PropTypes) {
-    const { data, isLoading } = useGetSingleResult('show', 'tv', id);
+    const { data: showData, isLoading: isLoadingShowData } = useGetSingleResult('show', 'tv', id);
+    const { data: showTrailerData, isLoading: isLoadingShowTrailerData } = useGetTrailer('tv', id, 'trailer');
 
-    if (isLoading) return <h2>Loading...</h2>
+    if (isLoadingShowData || isLoadingShowTrailerData) return <h2>Loading...</h2>
 
-    console.log(data)
+    const showKey = showTrailerData.results[0].key;
 
     return (
-        <div>{data.name}</div>
+        <div className={styles.show} style={{ backgroundImage: `url(${imagePath}${showData.backdrop_path})` }}>
+            <div className={styles.overlay}></div>
+            <div className="container">
+                <div className={styles.showSection}>
+                    <h1 className={styles.title}>{showData.original_name}</h1>
+                    <p className={styles.overview}>{showData.overview}</p>
+                    <div className={styles.details}>
+                        <a href={`https://youtube.com/embed/${showKey}`} target="_blank" className={styles.trailerBtn}><FaRegCirclePlay />Play</a>
+                        <span className={styles.rating}><FaStar /> {showData.vote_average.toString().slice(0, 3)}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }

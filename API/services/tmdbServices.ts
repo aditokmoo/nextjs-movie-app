@@ -2,6 +2,7 @@ import {
   getSingleEndpoint,
   getTopRatedEndpoint,
   searchMoviesAndShowsEndpoint,
+  getTrailer
 } from "../endpoints";
 import { axiosTMDBPrivate } from "../http";
 
@@ -28,3 +29,10 @@ export const getSearchedResult = async (query: string, type: string) => {
   const data = response.data;
   return data;
 };
+
+// Get Movie and TV Show trailer
+export const getMovieAndTVShowTrailer = async (type: string, id: number) => {
+  const response = await axiosTMDBPrivate(getTrailer(type, id));
+  const data = response.data;
+  return data;
+}

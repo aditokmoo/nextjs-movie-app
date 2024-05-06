@@ -1,4 +1,5 @@
 import { Show } from "./_components"
+import styles from './page.module.scss';
 
 interface PropTypes {
     params: {
@@ -7,5 +8,9 @@ interface PropTypes {
 }
 
 export default function TVShowPage({ params }: PropTypes) {
-    return <Show id={params.id} />
+    return (
+        <main className={styles.main}>
+            <Show id={params.id} />
+        </main>
+    )
 }
