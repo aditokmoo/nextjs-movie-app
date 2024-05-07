@@ -18,7 +18,7 @@ export default function Show({ id }: PropTypes) {
 
     if (isLoadingShowData || isLoadingShowTrailerData) return <h2>Loading...</h2>
 
-    const showKey = showTrailerData?.results[0].key;
+    const showKey = showTrailerData?.results[0]?.key;
 
     console.log(showTrailerData)
 
