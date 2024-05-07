@@ -20,15 +20,15 @@ export default function Movie({ id }: PropTypes) {
     const movieKey = movieTrailerData?.results[0]?.key;
 
     return (
-        <div className={styles.movie} style={{ backgroundImage: `url(${imagePath}${movieData.backdrop_path})` }}>
+        <div className={styles.movie} style={{ backgroundImage: `url(${imagePath}${movieData?.backdrop_path})` }}>
             <div className={styles.overlay}></div>
             <div className="container">
                 <div className={styles.movieSection}>
-                    <h1 className={styles.title}>{movieData.original_title}</h1>
-                    <p className={styles.overview}>{movieData.overview}</p>
+                    <h1 className={styles.title}>{movieData?.original_title}</h1>
+                    <p className={styles.overview}>{movieData?.overview}</p>
                     <div className={styles.details}>
                         <a href={`https://youtube.com/embed/${movieKey}`} target="_blank" className={styles.trailerBtn}><FaRegCirclePlay />Play</a>
-                        <span className={styles.rating}><FaStar /> {movieData.vote_average.toString().slice(0, 3)}</span>
+                        <span className={styles.rating}><FaStar /> {movieData?.vote_average.toString().slice(0, 3)}</span>
                     </div>
                 </div>
             </div>

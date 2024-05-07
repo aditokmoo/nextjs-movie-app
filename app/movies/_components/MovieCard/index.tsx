@@ -4,20 +4,14 @@ import Card from "@/components/common/Card";
 import CardRating from "@/components/common/Card/CardRating";
 import CardTitle from "@/components/common/Card/CardTitle";
 // Utils
-import { imagePath } from "@/utils";
+import { MovieType, imagePath } from "@/utils";
 // Icons
 import { IoMdSkipForward } from "react-icons/io";
 // SCSS
 import styles from "./index.module.scss";
 
 interface PropTypes {
-    data: {
-        id: number,
-        poster_path: string,
-        original_title: string,
-        vote_average: number,
-        overview: string,
-    }
+    data: MovieType
 }
 
 export default function MovieCard({ data }: PropTypes) {
@@ -30,9 +24,8 @@ export default function MovieCard({ data }: PropTypes) {
                             <h4>{data.original_title}</h4>
                             <p>{data.overview.slice(0, 50)}...</p>
                         </div>
-                        <IoMdSkipForward className={styles.icon} />
-
                     </div>
+                    <IoMdSkipForward className={styles.icon} />
                 </div>
                 <div className={styles.cardContent}>
                     <CardTitle>{data.original_title.length > 20 ? `${data.original_title.slice(0,20)}...` : data.original_title}</CardTitle>

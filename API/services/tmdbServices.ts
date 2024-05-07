@@ -1,3 +1,4 @@
+import { MovieType, ResultTrailerType, SearchQueryType, TVShowType } from "@/utils";
 import {
   getSingleEndpoint,
   getTopRatedEndpoint,

@@ -4,6 +4,7 @@ import useDebounce from "@/hooks/useDebounce";
 import { useGetTopRated } from "@/hooks/useGetTopResults";
 import useSearchResult from "@/hooks/useSearchResult";
 import MovieCard from "../MovieCard";
+import { MovieType, TVShowType } from "@/utils";
 // SCSS
 import styles from './index.module.scss';
 
@@ -15,11 +16,9 @@ export default function MovieList() {
 
     if (isLoadingTopRatedMovies || isLoadingSearchedResults) return <h2>Loading...</h2>
 
-    console.log(topRatedMovies)
-
     return (
         <div className={styles.movieList}>
-            {searchedResults.results.length === 0 ? topRatedMovies.map((movieData: any) => <MovieCard key={movieData.id} data={movieData} />) : searchedResults.results.map((movieData: any) => <MovieCard key={movieData.id} data={movieData} />)}
+            {searchedResults?.results.length === 0 ? topRatedMovies?.map((movieData: MovieType) => <MovieCard key={movieData.id} data={movieData} />) : searchedResults?.results.filter((movieData: MovieType) => movieData.poster_path).map((movieData: MovieType) => <MovieCard key={movieData.id} data={movieData} />)}
         </div>
     )
 }

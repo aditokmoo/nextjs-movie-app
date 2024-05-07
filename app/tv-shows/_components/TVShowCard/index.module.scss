@@ -30,18 +30,21 @@
       padding: 1.5rem 1rem;
 
       .content {
-        padding-right: 2rem;
+        padding-right: 4rem;
 
         p {
           font-size: 1.3rem;
           color: #777;
         }
       }
+    }
 
-      .icon {
-        color: $secondary-color;
-        font-size: 4rem;
-      }
+    .icon {
+      color: $secondary-color;
+      font-size: 3rem;
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
     }
 
     &:hover {

@@ -18,18 +18,20 @@ export default function Show({ id }: PropTypes) {
 
     if (isLoadingShowData || isLoadingShowTrailerData) return <h2>Loading...</h2>
 
-    const showKey = showTrailerData.results[0].key;
+    const showKey = showTrailerData?.results[0].key;
+
+    console.log(showTrailerData)
 
     return (
-        <div className={styles.show} style={{ backgroundImage: `url(${imagePath}${showData.backdrop_path})` }}>
+        <div className={styles.show} style={{ backgroundImage: `url(${imagePath}${showData?.backdrop_path})` }}>
             <div className={styles.overlay}></div>
             <div className="container">
                 <div className={styles.showSection}>
-                    <h1 className={styles.title}>{showData.original_name}</h1>
-                    <p className={styles.overview}>{showData.overview}</p>
+                    <h1 className={styles.title}>{showData?.original_name}</h1>
+                    <p className={styles.overview}>{showData?.overview}</p>
                     <div className={styles.details}>
                         <a href={`https://youtube.com/embed/${showKey}`} target="_blank" className={styles.trailerBtn}><FaRegCirclePlay />Play</a>
-                        <span className={styles.rating}><FaStar /> {showData.vote_average.toString().slice(0, 3)}</span>
+                        <span className={styles.rating}><FaStar /> {showData?.vote_average.toString().slice(0, 3)}</span>
                     </div>
                 </div>
             </div>

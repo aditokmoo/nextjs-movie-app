@@ -4,20 +4,14 @@ import Card from "@/components/common/Card";
 import CardRating from "@/components/common/Card/CardRating";
 import CardTitle from "@/components/common/Card/CardTitle";
 // Utils
-import { imagePath } from "@/utils";
+import { TVShowType, imagePath } from "@/utils";
 // Icons
 import { IoMdSkipForward } from "react-icons/io";
 // SCSS
 import styles from "./index.module.scss";
 
 interface PropTypes {
-    data: {
-        id: number,
-        poster_path: string,
-        name: string,
-        vote_average: number,
-        overview: string,
-    }
+    data: TVShowType
 }
 
 export default function TVShowCard({ data }: PropTypes) {
@@ -30,9 +24,8 @@ export default function TVShowCard({ data }: PropTypes) {
                             <h4>{data.name}</h4>
                             <p>{data.overview.slice(0, 50)}...</p>
                         </div>
-                        <IoMdSkipForward className={styles.icon} />
-
                     </div>
+                    <IoMdSkipForward className={styles.icon} />
                 </div>
                 <div className={styles.cardContent}>
                     <CardTitle>{data.name.length > 20 ? `${data.name.slice(0, 20)}...` : data.name}</CardTitle>
