@@ -4,6 +4,8 @@ import { useGetTrailer } from "@/hooks/useGetTrailer";
 import { FaStar } from "react-icons/fa";
 import { useGetSingleResult } from "@/hooks/useGetSingleResult"
 import { FaRegCirclePlay } from "react-icons/fa6";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import Link from "next/link";
 // SCSS
 import styles from './index.module.scss';
 
@@ -24,6 +26,7 @@ export default function Movie({ id }: PropTypes) {
             <div className={styles.overlay}></div>
             <div className="container">
                 <div className={styles.movieSection}>
+                    <Link href='/movies' className={styles.backBtn}><MdKeyboardDoubleArrowLeft />Back</Link>
                     <h1 className={styles.title}>{movieData?.original_title}</h1>
                     <p className={styles.overview}>{movieData?.overview}</p>
                     <div className={styles.details}>

@@ -1,10 +1,11 @@
 'use client'
-import { usePathname } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
 interface ContextType {
-    searchQuery: string,
-    setSearchQuery: (query: string) => void
+    searchMovieQuery: string,
+    setSearchMovieQuery: (query: string) => void,
+    searchTVShowQuery: string,
+    setSearchTVShowQueryQuery: (query: string) => void
 }
 
 interface PropTypes {
@@ -14,17 +15,15 @@ interface PropTypes {
 const TMDBContext = createContext<ContextType | null>(null);
 
 export default function TMDBContextProvider({ children }: PropTypes) {
-    const [searchQuery, setSearchQuery] = useState('');
-    const pathname = usePathname();
-
-    useEffect(() => {
-        setSearchQuery('');
-    }, [pathname]);
+    const [searchMovieQuery, setSearchMovieQuery] = useState('');
+    const [searchTVShowQuery, setSearchTVShowQueryQuery] = useState('');
 
     return (
         <TMDBContext.Provider value={{
-            searchQuery,
-            setSearchQuery,
+            searchMovieQuery,
+            setSearchMovieQuery,
+            searchTVShowQuery,
+            setSearchTVShowQueryQuery
         }}>
             {children}
         </TMDBContext.Provider>

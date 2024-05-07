@@ -1,4 +1,5 @@
 import { Movie } from "./_components"
+// SCSS
 import styles from './page.module.scss';
 
 interface PropTypes {

@@ -12,14 +12,14 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 import styles from './index.module.scss';
 
 export default function TVShowSearch() {
-    const { searchQuery, setSearchQuery } = useTMDBContext();
-    const { debouncedValue } = useDebounce(searchQuery);
+    const { searchTVShowQuery, setSearchTVShowQueryQuery } = useTMDBContext();
+    const { debouncedValue } = useDebounce(searchTVShowQuery);
     const { isLoading } = useSearchResult(debouncedValue, 'tv', 'searchTvShow');
 
     return (
         <div className={styles.search}>
             <IoSearchCircleSharp className={styles.icon} />
-            <Input type="text" placeholder="Search TV Show" id="searchTvShow" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)} />
+            <Input type="text" placeholder="Search TV Show" value={searchTVShowQuery} id="searchTvShow" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTVShowQueryQuery(e.target.value)} />
             {isLoading && <Image src={loadingDots} alt="loading-dots" width={20} height={20} className={styles.loading} />}
         </div>
     )

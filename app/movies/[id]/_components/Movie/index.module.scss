@@ -30,6 +30,14 @@
         z-index: 4;
         max-width: 70rem;
 
+        .backBtn {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            text-decoration: none;
+            color: $light-color;
+        }
+
         h1.title {
             font-size: 6rem;
             font-weight: 900;
