@@ -20,8 +20,6 @@ export default function Show({ id }: PropTypes) {
 
     const showKey = showTrailerData?.results[0]?.key;
 
-    console.log(showTrailerData)
-
     return (
         <div className={styles.show} style={{ backgroundImage: `url(${imagePath}${showData?.backdrop_path})` }}>
             <div className={styles.overlay}></div>
