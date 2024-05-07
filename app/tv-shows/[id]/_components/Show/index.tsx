@@ -4,9 +4,10 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { useGetSingleResult } from "@/hooks/useGetSingleResult"
 import { FaRegCirclePlay } from "react-icons/fa6";
+import { useGetTrailer } from "@/hooks/useGetTrailer";
+import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 // SCSS
 import styles from './index.module.scss';
-import { useGetTrailer } from "@/hooks/useGetTrailer";
 
 interface PropTypes {
     id: number
@@ -25,6 +26,7 @@ export default function Show({ id }: PropTypes) {
             <div className={styles.overlay}></div>
             <div className="container">
                 <div className={styles.showSection}>
+                    <Link href='/movies' className={styles.backBtn}><MdKeyboardDoubleArrowLeft />Back</Link>
                     <h1 className={styles.title}>{showData?.original_name}</h1>
                     <p className={styles.overview}>{showData?.overview}</p>
                     <div className={styles.details}>
