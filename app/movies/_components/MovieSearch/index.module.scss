@@ -1,0 +1,22 @@
+@import "@/app/styles/variables.scss";
+
+.search {
+  margin-bottom: 3rem;
+  position: relative;
+
+  .loading {
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
+    z-index: 4;
+  }
+
+  .icon {
+    position: absolute;
+    top: 0.8rem;
+    left: 1rem;
+    color: $primary-color;
+    font-size: 3rem;
+    z-index: 4;
+  }
+}

@@ -11,15 +11,15 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 // SCSS
 import styles from './index.module.scss';
 
-export default function TVShowSearch() {
+export default function MovieSearch() {
     const { searchQuery, setSearchQuery } = useTMDBContext();
     const { debouncedValue } = useDebounce(searchQuery);
-    const { isLoading } = useSearchResult(debouncedValue, 'tv', 'searchTvShow');
+    const { isLoading } = useSearchResult(debouncedValue, 'movie', 'searchMovie');
 
     return (
         <div className={styles.search}>
             <IoSearchCircleSharp className={styles.icon} />
-            <Input type="text" placeholder="Search TV Show" id="searchTvShow" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)} />
+            <Input type="text" placeholder="Search Movie" id="searchMovie" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)} />
             {isLoading && <Image src={loadingDots} alt="loading-dots" width={20} height={20} className={styles.loading} />}
         </div>
     )

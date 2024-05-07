@@ -14,20 +14,20 @@ interface PropTypes {
     data: {
         id: number,
         poster_path: string,
-        name: string,
+        original_title: string,
         vote_average: number,
         overview: string,
     }
 }
 
-export default function TVShowCard({ data }: PropTypes) {
+export default function MovieCard({ data }: PropTypes) {
     return (
-        <Link href={`/tv-shows/${data.id}`} className={styles.card}>
+        <Link href={`/movies/${data.id}`} className={styles.card}>
             <Card bgImage={`${imagePath}${data.poster_path}`}>
                 <div className={styles.cardOverlay}>
                     <div className={styles.overlayContent}>
                         <div className={styles.content}>
-                            <h4>{data.name}</h4>
+                            <h4>{data.original_title}</h4>
                             <p>{data.overview.slice(0, 50)}...</p>
                         </div>
                         <IoMdSkipForward className={styles.icon} />
@@ -35,7 +35,7 @@ export default function TVShowCard({ data }: PropTypes) {
                     </div>
                 </div>
                 <div className={styles.cardContent}>
-                    <CardTitle>{data.name.length > 20 ? `${data.name.slice(0, 20)}...` : data.name}</CardTitle>
+                    <CardTitle>{data.original_title.length > 20 ? `${data.original_title.slice(0,20)}...` : data.original_title}</CardTitle>
                     <CardRating>{data.vote_average.toString().slice(0, 3)}</CardRating>
                 </div>
             </Card>

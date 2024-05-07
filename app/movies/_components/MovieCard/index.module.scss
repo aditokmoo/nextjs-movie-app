@@ -1,0 +1,66 @@
+@import "@/app/styles/variables.scss";
+
+.card {
+  color: $light-color;
+
+  .cardOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    transition: 0.3s;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 0.8268557422969187) 48%,
+      rgba(0, 0, 0, 0.5439425770308124) 100%
+    );
+
+    .overlayContent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 1.5rem 1rem;
+
+      .content {
+        padding-right: 2rem;
+        width: 100%;
+
+        p {
+          font-size: 1.3rem;
+          color: #777;
+          width: 100%;
+        }
+      }
+
+      .icon {
+        color: $secondary-color;
+        font-size: 4rem;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .cardContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $dark-color;
+    padding: 1rem;
+  }
+}

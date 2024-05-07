@@ -1,5 +1,5 @@
 @mixin responsive($bp) {
-  @if ($bp == "tab-land") {
+  @if ($bp == "tablet") {
     @media only screen and (max-width: 75em) {
       @content;
     }

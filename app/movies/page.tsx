@@ -1,5 +1,12 @@
+import { MovieList, MovieSearch } from "./_components";
+
 export default async function MoviesPage() {
     return (
-        <h2>Movies Page</h2>
+        <main className="main">
+            <div className="container">
+                <MovieSearch />
+                <MovieList />
+            </div>
+        </main>
     )
 }
