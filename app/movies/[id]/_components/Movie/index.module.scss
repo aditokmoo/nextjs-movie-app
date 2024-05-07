@@ -36,6 +36,12 @@
             gap: .6rem;
             text-decoration: none;
             color: $light-color;
+
+            @include responsive('mobile') {
+                justify-content: center;
+                position: relative;
+                top: -3rem;
+            }
         }
 
         h1.title {
